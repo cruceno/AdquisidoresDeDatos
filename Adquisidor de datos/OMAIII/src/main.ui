@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OMAIII</class>
+ <widget class="QMainWindow" name="OMAIII">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1080</width>
+    <height>619</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>OMAIII - Data Adquisitor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QGroupBox" name="ScanSequence">
+       <property name="title">
+        <string>Scan Sequence</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="le_exposuretime"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="lbl_exposuretime">
+          <property name="text">
+           <string>Exposure Time</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_exposuretime</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLineEdit" name="le_scansnumber">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="lblscannumber">
+          <property name="text">
+           <string>N° Scans</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_scansnumber</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLineEdit" name="le_ignoredscans"/>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="lbl_ignoredscans">
+          <property name="text">
+           <string>Ignored Scans</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_ignoredscans</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLineEdit" name="le_damode"/>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="lbl_damode">
+          <property name="text">
+           <string>DA Mode</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_damode</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLineEdit" name="le_detectortemp"/>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="lbl_detectortemp">
+          <property name="text">
+           <string>Temperature</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_detectortemp</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="btn_update">
+          <property name="text">
+           <string>Update</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="btn_check">
+          <property name="text">
+           <string>Check</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="Monocromathor">
+       <property name="title">
+        <string>Monocromathor</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lbl_red">
+          <property name="text">
+           <string>Red</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_red</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="le_red"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_counter">
+          <property name="text">
+           <string>Counter</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_counter</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="le_counter"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QWidget" name="da_main_plot" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <zorder>splitter</zorder>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="opaqueResize">
+       <bool>true</bool>
+      </property>
+      <widget class="QGroupBox" name="Scan">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title">
+        <string>Scan</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="le_scannumbers"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="lb_scannumbers">
+          <property name="text">
+           <string>Scans Loop</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QPushButton" name="btn_run">
+          <property name="text">
+           <string>Run</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QPushButton" name="btn_stop">
+          <property name="text">
+           <string>Stop</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="AutoSave">
+       <property name="title">
+        <string>Auto Save</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="1" column="2">
+         <widget class="QToolButton" name="tlb_basename">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="le_initvalue"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="lbl_initvalue">
+          <property name="text">
+           <string>Init Value</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_initvalue</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="le_basename"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lbl_basename">
+          <property name="text">
+           <string>Base Name</string>
+          </property>
+          <property name="buddy">
+           <cstring>le_basename</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="chk_autosave">
+          <property name="text">
+           <string>Enable</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="Background">
+       <property name="title">
+        <string>Background</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="chk_autobkgsus">
+          <property name="text">
+           <string>Auto Background Sustraction</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="btn_sustractbkg">
+          <property name="text">
+           <string>Sustract</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QToolButton" name="tlb_selectbkg">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="le_selectedbkg"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1080</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionQuit"/>
+    <addaction name="actionSort"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionSetup">
+   <property name="text">
+    <string>Setup RS232</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSort">
+   <property name="text">
+    <string>Sort...</string>
+   </property>
+  </action>
+  <action name="actionIniciar">
+   <property name="text">
+    <string>Iniciar</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>le_exposuretime</tabstop>
+  <tabstop>le_scansnumber</tabstop>
+  <tabstop>le_ignoredscans</tabstop>
+  <tabstop>le_damode</tabstop>
+  <tabstop>le_detectortemp</tabstop>
+  <tabstop>btn_update</tabstop>
+  <tabstop>btn_run</tabstop>
+  <tabstop>btn_stop</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

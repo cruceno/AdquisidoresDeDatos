@@ -1,0 +1,1965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>983</width>
+    <height>681</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabmainwidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="tab_output_config">
+       <attribute name="title">
+        <string>Configuracion de Salida</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_18">
+        <item row="0" column="0" colspan="3">
+         <widget class="QGroupBox" name="gb_output_file">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>291</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Archivo de Salida</string>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="1" colspan="3">
+            <widget class="QLineEdit" name="le_output_file_path">
+             <property name="text">
+              <string>../Ensayos/ensayo</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_output_file_path">
+             <property name="text">
+              <string>Ruta</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="le_output_file_commentchar">
+             <property name="text">
+              <string>%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QToolButton" name="tlb_output_file_path">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QLabel" name="lb_output_file_commentchar">
+             <property name="text">
+              <string>Caracter de comentario</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="5">
+            <widget class="QGroupBox" name="gb_footer">
+             <property name="title">
+              <string>Pie de pagina</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_16">
+              <item row="0" column="0">
+               <widget class="QPlainTextEdit" name="ptx_footer"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="5">
+            <widget class="QGroupBox" name="gb_header">
+             <property name="title">
+              <string>Encabezado</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14">
+              <item row="0" column="0">
+               <widget class="QPlainTextEdit" name="ptx_header"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="gb_resistivity_test_config">
+          <property name="title">
+           <string>Resistividad</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_22">
+           <item row="0" column="0" colspan="2">
+            <widget class="QRadioButton" name="rb_resistivity_altern">
+             <property name="text">
+              <string>Alterna</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" colspan="3">
+            <widget class="QRadioButton" name="rb_resistivity_continua">
+             <property name="text">
+              <string>Continua</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lb_resistivity_temp_input">
+             <property name="text">
+              <string>Temperatura</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="cbx_resistivity_temp_input">
+             <item>
+              <property name="text">
+               <string>AG_34410A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34401A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34405A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_T0</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_T1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_T2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_T3</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lb_resistivity_volt_input">
+             <property name="text">
+              <string>Voltage</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QComboBox" name="cbx_resistivity_volt_input">
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_V0</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34401A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34405A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34410A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_V1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_V2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_V3</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="lb_resistivity_direction_output">
+             <property name="text">
+              <string>Direccion</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2" colspan="3">
+            <widget class="QComboBox" name="cbx_resistivity_direction_output">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D0</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D5</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D6</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USB_TC_AI_D7</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="lb_resistivity_lockin">
+             <property name="text">
+              <string>Escala Lock-in</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="QComboBox" name="cbx_resistivity_lockin_scale_value">
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>20</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>50</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>100</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>500</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="lb_resistivity_lockin_product_sing">
+             <property name="text">
+              <string>x</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <widget class="QComboBox" name="cbx_resistivity_lockin_scale_unit">
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>10</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>100</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>1000</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>10000</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="lb_resistivity_data_per_second">
+             <property name="text">
+              <string>Datos por seguindo</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QSpinBox" name="sbx_resistivity_data_per_second"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="gb_termcicle_test_config">
+          <property name="title">
+           <string>Ciclo termico</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="2" column="0">
+            <widget class="QLabel" name="lb_termcicle_data_per_second">
+             <property name="text">
+              <string>Datos por segunto</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="sbx_termcicle_data_per_second"/>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QGroupBox" name="gb_termcicle_in_channels">
+             <property name="title">
+              <string>Canales de entrada</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_termcicle_sample_temperature_input">
+                <property name="text">
+                 <string>Temperatura Muestra</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lb_termcicle_hold_1_temperature_input">
+                <property name="text">
+                 <string>Temperatura Mordaza 1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lb_termcicle_hold_2_temperature_input">
+                <property name="text">
+                 <string>Temperatura Mordaza 2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lb_termcicle_extensometer_input">
+                <property name="text">
+                 <string>Extensometro</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lb_termcicle_load_cell_input">
+                <property name="text">
+                 <string>Celda de carga</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="cbx_termcicle_sample_temperature_input">
+                <item>
+                 <property name="text">
+                  <string>AG_34401A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34405A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34410A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="cbx_termcicle_hold_2_temperature_input">
+                <item>
+                 <property name="text">
+                  <string>AG_34401A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34405A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34410A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="cbx_termcicle_hold_1_temperature_input">
+                <item>
+                 <property name="text">
+                  <string>AG_34401A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34405A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34410A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_T3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QComboBox" name="cbx_termcicle_extensometer_input">
+                <item>
+                 <property name="text">
+                  <string>AG_34401A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34405A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34410A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QComboBox" name="cbx_termcicle_load_cell_input">
+                <item>
+                 <property name="text">
+                  <string>AG_34401A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34405A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>AG_34410A</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>USB_TC_AI_V3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QGroupBox" name="gb_termcicle_sample_dimensions">
+             <property name="title">
+              <string>Dimensiones de la Muestra (mm)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_termcicle_sample_width">
+                <property name="text">
+                 <string>Ancho</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="dsbx_termcicle_sample_width"/>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="lb_termcicle_sample_heigth">
+                <property name="text">
+                 <string>Espesor</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QDoubleSpinBox" name="dsbx_termcicle_sample_heigth"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lb_termcicle_sample_large">
+                <property name="text">
+                 <string>Largo</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="dsbx_termcicle_sample_large"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QGroupBox" name="gb_dilatometer_test_config">
+          <property name="title">
+           <string>Dilatometria</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_19">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_dilatometer_termperature_input">
+             <property name="text">
+              <string>Temperatura</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="cbx_dilatometer_termperature_input">
+             <item>
+              <property name="text">
+               <string>AG_34401A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34405A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>AG_34410A</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lb_dilatometer_lvdt_input">
+             <property name="text">
+              <string>Dilatación</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cbx_dilatometer_lvdt_input">
+             <item>
+              <property name="text">
+               <string>LVDT</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+          <zorder>lb_dilatometer_termperature_input</zorder>
+          <zorder>lb_dilatometer_lvdt_input</zorder>
+          <zorder>cbx_dilatometer_termperature_input</zorder>
+          <zorder>cbx_dilatometer_lvdt_input</zorder>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_plot_config">
+       <attribute name="title">
+        <string>Configuracion de Graficas</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_62">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="gb_auxplot_1_config">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Configuraciones de Grafica Auxiliar 1</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_cbx_auxport_1_x">
+             <property name="text">
+              <string>Eje X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="lb_cbx_auxport_1_y">
+             <property name="text">
+              <string>Eje Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lb_cbx_auxport_1_linecolor">
+             <property name="text">
+              <string>Color de Linea</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="cbx_auxport_1_x"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cbx_auxport_1_y"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="cbx_auxport_1_linecolor">
+             <item>
+              <property name="text">
+               <string>Blue</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Green</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Red</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Yellow</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="chbx_autoscale_auxport_1">
+             <property name="text">
+              <string>Autoscale</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <widget class="QGroupBox" name="gb_mainplot_config">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Configuraciones de Grafica Principal</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="gb_line_2_mainplot_config">
+             <property name="minimumSize">
+              <size>
+               <width>191</width>
+               <height>72</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Configuraciones de  Grafica - Linea 2</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_line_2_mainplot_y">
+                <property name="text">
+                 <string>Eje Y</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="lb_line_2_mainplot_linecolor">
+                <property name="text">
+                 <string>Color de Linea</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="cbx_line_2_mainplot_y"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="cbx_line_2_mainplot_linecolor">
+                <item>
+                 <property name="text">
+                  <string>Blue</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Green</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Red</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Yellow</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="gb_line_1_mainplot_config">
+             <property name="title">
+              <string>Configuraciones de  Linea 1</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="cbx_line_1_mainplot_y"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="cbx_line_1_mainplot_linecolor">
+                <item>
+                 <property name="text">
+                  <string>Blue</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Green</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Red</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Yellow</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="lb_line_1_mainplot_y">
+                <property name="text">
+                 <string>Eje Y</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="lb_line_1_mainplot_linecolor">
+                <property name="text">
+                 <string>Color de Linea</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="cbx_line_1_mainplot_x"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="chbx_autoscale_mainplot">
+                <property name="text">
+                 <string>Autoscale</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="lb_line_1_mainplot_x">
+                <property name="text">
+                 <string>Eje X</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="gb_displays_config">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Displays Numericos</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_21">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_var_1_select">
+             <property name="text">
+              <string>Variable 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="cbx_var_1_select"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lb_var_2_select">
+             <property name="text">
+              <string>Variable 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cbx_var_2_select"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lb_var_3_select">
+             <property name="text">
+              <string>Variable 3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="cbx_var_3_select"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="gb_auxplot_2_config">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Configuraciones de Grafica Auxiliar 2</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_cbx_auxport_2_x">
+             <property name="text">
+              <string>Eje X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="lb_cbx_auxport_2_y">
+             <property name="text">
+              <string>Eje Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lb_cbx_auxport_2_linecolor">
+             <property name="text">
+              <string>Color de Linea</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="cbx_auxport_2_x"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cbx_auxport_2_y"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="cbx_auxport_2_linecolor">
+             <item>
+              <property name="text">
+               <string>Blue</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Green</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Red</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Yellow</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="chbx_autoscale_auxport_2">
+             <property name="text">
+              <string>Autoscale</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="gb_auxplot_3_config">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Configuraciones de  Grafica Auxiliar 3</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cbx_auxport_3_y"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="cbx_auxport_3_linecolor">
+             <item>
+              <property name="text">
+               <string>Blue</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Green</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Red</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Yellow</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="lb_cbx_auxport_3_y">
+             <property name="text">
+              <string>Eje Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lb_cbx_auxport_3_linecolor">
+             <property name="text">
+              <string>Color de Linea</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="cbx_auxport_3_x"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="chbx_autoscale_auxport_3">
+             <property name="text">
+              <string>Autoscale</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_cbx_auxport_3_x">
+             <property name="text">
+              <string>Eje X</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Dispositives_general_general_config">
+       <attribute name="title">
+        <string>Configuracion de Dispositivos</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_23">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="Dispositives_Config">
+          <property name="tabShape">
+           <enum>QTabWidget::Triangular</enum>
+          </property>
+          <property name="currentIndex">
+           <number>4</number>
+          </property>
+          <widget class="QWidget" name="tab_AG34401A_config">
+           <attribute name="title">
+            <string>Agilent 34401A</string>
+           </attribute>
+           <widget class="QGroupBox" name="gb_AG34401A_status">
+            <property name="geometry">
+             <rect>
+              <x>471</x>
+              <y>9</y>
+              <width>199</width>
+              <height>75</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Estado</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_28">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_AG_34401A_status">
+               <property name="text">
+                <string>No es puede establecer comunicacion</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="pb_get_AG_34401A_status">
+               <property name="text">
+                <string>Verificar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QGroupBox" name="gb_AG34401A_serial_config">
+            <property name="geometry">
+             <rect>
+              <x>9</x>
+              <y>9</y>
+              <width>169</width>
+              <height>183</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Configuracion Puerto Serie</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_35">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_port">
+               <property name="text">
+                <string>Puerto</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_port"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_baudrate">
+               <property name="text">
+                <string>Velocidad</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_baudrate"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_databits">
+               <property name="text">
+                <string>Bits de datos</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_parity">
+               <property name="text">
+                <string>Paridad</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_stopbits">
+               <property name="text">
+                <string>Bits de parada</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_hadshake">
+               <property name="text">
+                <string>Control de flujo</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_hadshake">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_stopbits">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_parity">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbx_AG34401A_serial_databits">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="tab_AG34405A_config">
+           <attribute name="title">
+            <string>Agilent 34405A</string>
+           </attribute>
+           <widget class="QGroupBox" name="gb_AG_34405A_status">
+            <property name="geometry">
+             <rect>
+              <x>720</x>
+              <y>10</y>
+              <width>199</width>
+              <height>75</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Estado</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_29">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_AG_34405A_status">
+               <property name="text">
+                <string>No es puede establecer comunicacion</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="pb_AG_34405A_status">
+               <property name="text">
+                <string>Verificar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="tab_AG34410A_config">
+           <attribute name="title">
+            <string>Agilent 34410A</string>
+           </attribute>
+           <widget class="QGroupBox" name="gb_AG_34410A_status">
+            <property name="geometry">
+             <rect>
+              <x>720</x>
+              <y>10</y>
+              <width>199</width>
+              <height>75</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Estado</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_30">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_AG_34410A_status">
+               <property name="text">
+                <string>No es puede establecer comunicacion</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="pb_AG_34410A_status">
+               <property name="text">
+                <string>Verificar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="tab_USB_TC_AI_config">
+           <attribute name="title">
+            <string>USB-TC-AI</string>
+           </attribute>
+           <widget class="QGroupBox" name="gb_USB_TC_AI_status">
+            <property name="geometry">
+             <rect>
+              <x>670</x>
+              <y>20</y>
+              <width>261</width>
+              <height>75</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Estado</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_31">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_USB_TC_AI_status">
+               <property name="text">
+                <string>No es puede establecer comunicacion</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="pb_USB_TC_AI_status">
+               <property name="text">
+                <string>Verificar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QSpinBox" name="sbx_USB_TC_AI_boardnum">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>30</y>
+              <width>41</width>
+              <height>22</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lb_USB_TC_AI_boardnum">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>30</y>
+              <width>101</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Numero de tarjeta</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="tab_LVDT_config">
+           <attribute name="title">
+            <string>LVDT</string>
+           </attribute>
+           <widget class="QGroupBox" name="gb_LVDT_status">
+            <property name="geometry">
+             <rect>
+              <x>720</x>
+              <y>20</y>
+              <width>199</width>
+              <height>75</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Estado</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_32">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_LVDT_status">
+               <property name="text">
+                <string>No es puede establecer comunicacion</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="pb_LVDT_status">
+               <property name="text">
+                <string>Verificar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QGroupBox" name="gb_AG34401A_serial_config_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>20</y>
+              <width>261</width>
+              <height>201</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Configuracion Puerto Serie</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_36">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_port_2">
+               <property name="text">
+                <string>Puerto</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_port"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_baudrate_2">
+               <property name="text">
+                <string>Velocidad</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_baudrate"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_databits_2">
+               <property name="text">
+                <string>Bits de datos</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_databits">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_parity_2">
+               <property name="text">
+                <string>Paridad</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_parity">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_stopbits_2">
+               <property name="text">
+                <string>Bits de parada</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_stopbits">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="lb_AG34401A_serial_hadshake_2">
+               <property name="text">
+                <string>Control de flujo</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QComboBox" name="cbx_LVDT_serial_hadshake">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_plots">
+       <attribute name="title">
+        <string>Graficas</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_13">
+        <item row="0" column="0" rowspan="2" colspan="2">
+         <widget class="QGroupBox" name="gb_auxplot_1">
+          <property name="maximumSize">
+           <size>
+            <width>285</width>
+            <height>176</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Auxiliar 1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="gb_time">
+          <property name="minimumSize">
+           <size>
+            <width>201</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>201</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Tiempo de ensayo</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_time_hour">
+             <property name="smallDecimalPoint">
+              <bool>false</bool>
+             </property>
+             <property name="numDigits">
+              <number>2</number>
+             </property>
+             <property name="digitCount">
+              <number>2</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>88.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>88</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLCDNumber" name="lcd_time_minute">
+             <property name="numDigits">
+              <number>2</number>
+             </property>
+             <property name="digitCount">
+              <number>2</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>88</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLCDNumber" name="lcd_time_second">
+             <property name="numDigits">
+              <number>2</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>88</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QGroupBox" name="gb_var_1">
+          <property name="minimumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Variable 1</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_var_1">
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>8</number>
+             </property>
+             <property name="digitCount">
+              <number>8</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QGroupBox" name="gb_var_2">
+          <property name="minimumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Variable 2</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_var_2">
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>8</number>
+             </property>
+             <property name="digitCount">
+              <number>8</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QGroupBox" name="gb_var_3">
+          <property name="minimumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Variable 3</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_var_3">
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>8</number>
+             </property>
+             <property name="digitCount">
+              <number>8</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2" rowspan="3" colspan="4">
+         <widget class="QGroupBox" name="gb_mainplot">
+          <property name="minimumSize">
+           <size>
+            <width>650</width>
+            <height>407</height>
+           </size>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
+          </property>
+          <property name="title">
+           <string>Principal</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QGroupBox" name="gb_auxplot_2">
+          <property name="minimumSize">
+           <size>
+            <width>247</width>
+            <height>151</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>285</width>
+            <height>151</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Auxiliar 2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QGroupBox" name="gb_auxplot_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>161</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>285</width>
+            <height>161</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Auxiliar3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="pb_start">
+          <property name="text">
+           <string>Comenzar</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="pb_start_save_data">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Iniciar registro de datos</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="pb_end">
+          <property name="text">
+           <string>Finalizar</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3" colspan="3">
+         <widget class="QGroupBox" name="gb_scale_mainplot_controls">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>71</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Scale Main Graph</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_24">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lb_x_min">
+             <property name="text">
+              <string>xMin</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="sb_xmin">
+             <property name="minimum">
+              <number>-200</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="lb_x_max">
+             <property name="text">
+              <string>xMax</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QSpinBox" name="sb_xmax">
+             <property name="suffix">
+              <string/>
+             </property>
+             <property name="minimum">
+              <number>-200</number>
+             </property>
+             <property name="maximum">
+              <number>500</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lb_y_min">
+             <property name="text">
+              <string>yMin</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="sb_ymin">
+             <property name="minimum">
+              <number>-15000</number>
+             </property>
+             <property name="maximum">
+              <number>16000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="lb_y_max">
+             <property name="text">
+              <string>yMax</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QSpinBox" name="sb_ymax">
+             <property name="minimum">
+              <number>-15000</number>
+             </property>
+             <property name="maximum">
+              <number>16000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
