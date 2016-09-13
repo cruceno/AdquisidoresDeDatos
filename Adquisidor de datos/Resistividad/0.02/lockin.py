@@ -84,7 +84,3 @@ class SR530():
     def __del__(self):
         self.serial.close()
 
-
-lockin=SR530()
-lockin.getSerialConn('COM10')
-print lockin.getStatus()
