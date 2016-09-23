@@ -21,6 +21,7 @@ import numpy as np
 
 # Librerias para graficar en el ploter
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
 from matplotlib.figure import Figure
 
 
@@ -99,7 +100,7 @@ class Test_Resistividad ( QtCore.QThread ):
             
             from lockin import SR530
             self.lock_in_adq = SR530()
-            self.lock_in_adq.getSerialconn(lock_in[1])
+            self.lock_in_adq.getSerialConn(lock_in[1])
             
         self.refresh = data_per_second
         self.savedata = False
@@ -158,6 +159,8 @@ class Test_Resistividad ( QtCore.QThread ):
             #======================================================================
             self.lock_in_adq.write('Q1')
             Lock_In = self.lock_in_adq.read()
+            self.lock_in_adq.write('G')
+            Lock_In_sensitivity= self.lock_in_adq.read()
             #======================================================================
 
             timestamp = time.time() - self.zero_time
@@ -166,7 +169,8 @@ class Test_Resistividad ( QtCore.QThread ):
 
             data = [timestamp, 
                     temp_sample, 
-                    Lock_In]
+                    Lock_In,
+                    Lock_In_sensitivity]
 
             #===================================================================
             # Guardando datos en disco duro
@@ -186,7 +190,8 @@ class Test_Resistividad ( QtCore.QThread ):
                                             
                 line = str ( data[0] ) + '\t' 
                 line+= str ( data[1] ) + '\t' 
-                line+= str ( data[2] ) + '\n' 
+                line+= str ( data[2] ) + '\t' 
+                line+= str ( data[3] ) + '\n'
                 
                 fsock.write( line )
                 fsock.close()
@@ -195,7 +200,8 @@ class Test_Resistividad ( QtCore.QThread ):
                 tempfsock = open( 'tempdata', 'w' )
                 line = str ( data[0] ) + '\t' 
                 line+= str ( data[1] ) + '\t' 
-                line+= str ( data[2] ) + '\n' 
+                line+= str ( data[2] ) + '\t' 
+                line+= str ( data[3] ) + '\n' 
                 tempfsock.write( line )
                 tempfsock.close()           
                  
@@ -233,7 +239,9 @@ class Main( QtGui.QMainWindow ):
         # Inicializando base de ploteo para mainplot--------------------------------
         self.vbl_main = QtGui.QVBoxLayout( self.gb_mainplot )
         self.maincanvas = canvas( self.gb_mainplot )
+        self.mainbar=NavigationToolbar(self.maincanvas,self.gb_mainplot)
         self.vbl_main.insertWidget( 0, self.maincanvas )
+        self.vbl_main.insertWidget( 1, self.mainbar) 
         #--------------------------------------------------------------------------
         # Inicializando base de ploteo para auxplot_1------------------------------
         self.vbl_aux_1 = QtGui.QVBoxLayout( self.gb_auxplot_1 )
@@ -258,8 +266,8 @@ class Main( QtGui.QMainWindow ):
                      self.show_data)
 
         #=======================================================================
-        ports=scan_serial.scan(30, False)
-        
+        ports = scan_serial.scan(30, True)
+        print ports
         for i in range(self.cbx_temperature_sample_channel.count()):
             self.cbx_temperature_sample_channel.removeItem(i)
         for port in ports:
@@ -449,8 +457,8 @@ class Main( QtGui.QMainWindow ):
             for line in header.split( '\n' ):
                 self.comented_header = self.comented_header + self.le_output_file_commentchar.text() + line + '\n'
                 
-            temp= [self.cbx_temperature_sample_input.currentText(), self.cbx_temperature_sample_channel.currentText()]
-            lock_in= [self.cbx_lock_in_input.currentText(), self.cbx_lock_in_channel.currentText()]
+            temp= [self.cbx_temperature_sample_input.currentText(), str(self.cbx_temperature_sample_channel.currentText())]
+            lock_in= [str(self.cbx_lock_in_input.currentText()), str(self.cbx_lock_in_channel.currentText())]
             
             self.resistividad.test( outfile,
                                     self.sb_data_per_second.value(),
@@ -472,8 +480,8 @@ class Main( QtGui.QMainWindow ):
             f.close()
             s.seek( 0 )
 
-            time_np, temp_sample, lock_in = np.genfromtxt(   s,
-                                                             usecols = ( 0, 1, 2 ),
+            time_np, temp_sample, lock_in, lock_in_sensitivity = np.genfromtxt(   s,
+                                                             usecols = ( 0, 1, 2, 3 ),
                                                              deletechars = "\n",
                                                              dtype = float,
                                                              autostrip = True,
@@ -499,9 +507,27 @@ class Main( QtGui.QMainWindow ):
             else: # Si no esta normalizado nos muestra simplente el lockin
                 self.lcd_var_2.display( str ( lock_in[-1] ))
 
-            self.lcd_var_5.display( str(float ( lock_in[-1] ))) # Nos muestra el lockin sin normalizar en mV o uV
-            
-            self.lcd_var_3.display( str ( float(lock_in[-1]) ) ) # Muestra el lock-in en Voltios. 
+            if lock_in_sensitivity < 7:
+                factor=1000000000
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( lock_in[-1] )/factor)) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(lock_in[-1])/factor ) ) # Muestra el lock-in en Voltios. 
+            elif 7 <= lock_in_sensitivity < 16: 
+                factor=1000000
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( lock_in[-1])/factor)) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(lock_in[-1] )/factor ) ) # Muestra el lock-in en Voltios. 
+            elif 16 <= lock_in_sensitivity:
+                factor=1000
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( lock_in[-1])/factor )) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(lock_in[-1] )/factor ) ) # Muestra el lock-in en Voltios. 
 
 
 ##==============================IMPORTANTE !!!!=========================================
@@ -604,7 +630,7 @@ class Main( QtGui.QMainWindow ):
                     label.set_visible( False )
                 self.auxcanvas_1.fig.canvas.draw()
 
-            del temp_sample, lock_in, time_np, temp_range
+            del temp_sample, lock_in, time_np, temp_range, lock_in_sensitivity
 
 ### Antes de Inicio de registro de datos 
         else:
@@ -636,11 +662,31 @@ class Main( QtGui.QMainWindow ):
             if self.norm_lock_in:
                 mostrame = data[2]/self.norm_lock_in
                 self.lcd_var_2.display( str (mostrame))
-
             else:
                 self.lcd_var_2.display( str (  float ( data[2] ) ))
-            self.lcd_var_3.display( str ( float ( data[2])))
-            self.lcd_var_5.display( str ( float ( data[2])))
+                
+           
+            if data[3] < 7:
+                factor=1000000000
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( data[2] )/factor)) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(data[2])/factor ) ) # Muestra el lock-in en Voltios. 
+            elif 7 <= data[3] < 16: 
+                factor=1000000
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( data[2])/factor)) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(data[2] )/factor ) ) # Muestra el lock-in en Voltios. 
+            elif 16 <= data[3]:
+                factor=1000
+                self.lb_lock_in_mv.setStyleSheet("QLabel { background-color : green; }");
+                self.lb_lock_in_uv.setStyleSheet("QLabel { background-color : none; }");
+                self.lb_lock_in_nv.setStyleSheet("QLabel { background-color : none; }");
+                self.lcd_var_5.display( str(float ( data[2])/factor )) # Nos muestra el lockin sin normalizar en mV o uV
+                self.lcd_var_3.display( str ( float(data[2] )/factor ) ) # Muestra el lock-in en Voltios. 
             self.lcd_temperature_sample.display( str ( data[1] ) )
 
 def main():

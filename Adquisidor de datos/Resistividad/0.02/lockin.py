@@ -23,23 +23,28 @@ class SR530():
                             baudrate=19200,
                             bytesize=serial.EIGHTBITS,
                             parity=serial.PARITY_ODD,
-                            stopbits=serial.STOPBITS_ONE,
-                            timeout=1
+                            stopbits=serial.STOPBITS_ONE
+
                             )
-        
+        self.serial.close()
+        sleep(1)
+        self.serial.open()
         #self.write('Z\r')#Resetea el Lock-In la luz ERR se encendera por 3 seg
         #sleep(4)
         self.write('W 1\r')#Pone el valor de espera entre envio de caracteres del lock-in en 4ms
-        jcmd='J '+str(ord('\n'))+'\r'#especifica el fin de linea enviado por el lock in en <cr>
+        jcmd='J '+str(ord('\n'))#especifica el fin de linea enviado por el lock in en <cr>
         self.write(jcmd)
         #self.write('W\r')
         #print 'Line:' + self.serial.readline()
         
     def read(self):
-        return self.serial.readline('\r\n')
+
+        return self.serial.readline()
+
     def write(self,command):
+
         self.serial.write(command+'\r')
-    
+
     def getStatus(self):
         '''
         Funcion para obtener el estado de todas las configuraciones del lock-in.
@@ -83,4 +88,3 @@ class SR530():
     
     def __del__(self):
         self.serial.close()
-
