@@ -986,16 +986,6 @@
            <string>Lock - in Sensitivity</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
-           <item row="0" column="0">
-            <widget class="QLabel" name="lb_lock_in_mv">
-             <property name="text">
-              <string>mV</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1" rowspan="2">
             <widget class="QLCDNumber" name="lcd_lock_in_sensitivity">
              <property name="smallDecimalPoint">
@@ -1009,20 +999,24 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="lb_lock_in_uv">
-             <property name="text">
-              <string>uV</string>
+           <item row="0" column="0" rowspan="2">
+            <widget class="QLabel" name="lb_lock_in_sensitivity_unit">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="autoFillBackground">
+              <bool>false</bool>
              </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="lb_lock_in_nv">
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(0, 255, 0)</string>
+             </property>
              <property name="text">
-              <string>nV</string>
+              <string>mV</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::AutoText</enum>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
