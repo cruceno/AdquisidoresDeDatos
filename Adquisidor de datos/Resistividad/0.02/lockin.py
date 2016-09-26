@@ -18,7 +18,8 @@ class SR530():
          
     def getSerialConn(self,s_port):
         import serial
-        self.serial = serial.Serial(
+        try:
+            self.serial = serial.Serial(
                             port=s_port,
                             baudrate=19200,
                             bytesize=serial.EIGHTBITS,
@@ -26,42 +27,47 @@ class SR530():
                             stopbits=serial.STOPBITS_ONE
 
                             )
-        self.serial.close()
-        sleep(1)
-        self.serial.open()
-        #self.write('Z\r')#Resetea el Lock-In la luz ERR se encendera por 3 seg
-        #sleep(4)
-        self.write('W 1\r')#Pone el valor de espera entre envio de caracteres del lock-in en 4ms
-        jcmd='J '+str(ord('\n'))#especifica el fin de linea enviado por el lock in en <cr>
-        self.write(jcmd)
-        #self.write('W\r')
-        #print 'Line:' + self.serial.readline()
+
+            self.serial.close()
+            sleep(1)
+            self.serial.open()
+            #self.write('Z\r')#Resetea el Lock-In la luz ERR se encendera por 3 seg
+            #sleep(4)
+            self.write('W 1\r')#Pone el valor de espera entre envio de caracteres del lock-in en 4ms
+            jcmd='J '+str(ord('\n'))#especifica el fin de linea enviado por el lock in en <cr>
+            self.write(jcmd)
+            #self.write('W\r')
+            #print 'Line:' + self.serial.readline()
+            return 'Conectado.'
+            
+        except:
+            return 'Error al conectar al puerto serie'
     def getSensitivity(self):
         sensitivitys={
-                      '1':('10','nV',10e9),
-                      '2':('20','nV',10e9),
-                      '3':('50','nV',10e9),
-                      '4':('100','nV',10e9),
-                      '5':('200','nV',10e9),
-                      '6':('500','nV',10e9),
-                      '7':('1','uV',10e6),
-                      '8':('2','uV',10e6),
-                      '9':('5','uV',10e6),
-                      '10':('10','uV',10e6),
-                      '11':('20','uV',10e6),
-                      '12':('50','uV',10e6),
-                      '13':('100','uV',10e6),
-                      '14':('200','uV',10e6),
-                      '15':('500','uV',10e6),
-                      '16':('1','mV',10e3),
-                      '17':('2','mV',10e3),
-                      '18':('5','mV',10e3),
-                      '19':('10','mV',10e3),
-                      '20':('20','mV',10e3),
-                      '21':('50','mV',10e3),
-                      '22':('100','mV',10e3),
-                      '23':('200','mV',10e3),
-                      '24':('500','mV',10e3),
+                      '1':('10','nV',1e9),
+                      '2':('20','nV',1e9),
+                      '3':('50','nV',1e9),
+                      '4':('100','nV',1e9),
+                      '5':('200','nV',1e9),
+                      '6':('500','nV',1e9),
+                      '7':('1','uV',1e6),
+                      '8':('2','uV',1e6),
+                      '9':('5','uV',1e6),
+                      '10':('10','uV',1e6),
+                      '11':('20','uV',1e6),
+                      '12':('50','uV',1e6),
+                      '13':('100','uV',1e6),
+                      '14':('200','uV',1e6),
+                      '15':('500','uV',1e6),
+                      '16':('1','mV',1e3),
+                      '17':('2','mV',1e3),
+                      '18':('5','mV',1e3),
+                      '19':('10','mV',1e3),
+                      '20':('20','mV',1e3),
+                      '21':('50','mV',1e3),
+                      '22':('100','mV',1e3),
+                      '23':('200','mV',1e3),
+                      '24':('500','mV',1e3),
                       }
         self.write('G')    
         s=self.read().strip('\n')
@@ -118,3 +124,4 @@ class SR530():
     
     def __del__(self):
         self.serial.close()
+

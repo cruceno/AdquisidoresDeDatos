@@ -81,26 +81,13 @@ class Test_Resistividad ( QtCore.QThread ):
             import Multimetros
             self.temp_adq= Multimetros.AG34401A(str(temp[1]))
             self.time_stamp = 0
-        
-        if lock_in[0]== 'AG34410A':
-            import Multimetros
-            self.lock_in_adq=Multimetros.AG34410A()
-            self.lock_in_adq.write( '*RST' )
-            time.sleep( 0.1 )
-            self.lock_in_adq.write( 'CONF:VOLT:DC AUTO' )
-            time.sleep( 0.5 )
-            self.time_stamp = 0
-            
-        elif lock_in[0] == 'AG34401A':
-            import Multimetros
-            self.lock_in_adq= Multimetros.AG34401A(str(temp[1]))
-            self.time_stamp = 0
-            
-        elif lock_in[0] == 'LOCK-IN SR530':
+
+        if lock_in[0] == 'LOCK-IN SR530':
             
             from lockin import SR530
             self.lock_in_adq = SR530()
-            self.lock_in_adq.getSerialConn(lock_in[1])
+            print 'Conectando .... '+str(lock_in[1])
+            print self.lock_in_adq.getSerialConn(lock_in[1])
             
         self.refresh = data_per_second
         self.savedata = False
@@ -112,10 +99,9 @@ class Test_Resistividad ( QtCore.QThread ):
 
     def run ( self ):
         first = True
-        TempVal = 0.0
-        VoltVal = 0.0
+
         self.zero_time = time.time()
-##        print "en run"
+        #print "en run"
         while not self.exiting:
             
             if self.temp_adq.name=='AG34410A':
@@ -157,8 +143,11 @@ class Test_Resistividad ( QtCore.QThread ):
             #======================================================================
             # Valor del Lock In
             #======================================================================
+            #print 'Leyendo Lock In...'
             self.lock_in_adq.write('Q1')
+            
             Lock_In = self.lock_in_adq.read()
+            #print 'Leyendo Sensibilidad'
             Lock_In_sensitivity= self.lock_in_adq.getSensitivity()
             #======================================================================
 
@@ -177,6 +166,7 @@ class Test_Resistividad ( QtCore.QThread ):
             if self.savedata: 
                 if first:
                     fsock = open( self.outfile, 'w' )
+                    self.emit( QtCore.SIGNAL ( "LOCK_INCFG(PyQt_PyObject)" ), self.lock_in_adq.getStatus())
                     first = False
                 else:
                     fsock = open( self.outfile, 'a' )
@@ -188,8 +178,9 @@ class Test_Resistividad ( QtCore.QThread ):
                         self.temp_adq.write( 'DISPLAY:TEXT "Guardando..."\n' )
                                             
                 line = str ( data[0] ) + '\t' 
-                line+= str ( data[1] ) + '\t' 
-                line+= str ( data[2] ) + '\n'
+                line+= str ( data[1] ) + '\t'
+                line+= str ( data[2] ) + '\t'  
+                #line+= str ( data[3] ) + '\n'
                 
                 fsock.write( line )
                 fsock.close()
@@ -197,13 +188,14 @@ class Test_Resistividad ( QtCore.QThread ):
             else:
                 tempfsock = open( 'tempdata', 'w' )
                 line = str ( data[0] ) + '\t' 
-                line+= str ( data[1] ) + '\t' 
-                line+= str ( data[2] ) + '\n' 
+                line+= str ( data[1] ) + '\t'
+                line+= str ( data[2] ) + '\t'  
+                #line+= str ( data[3] ) + '\n' 
                  
                 tempfsock.write( line )
                 tempfsock.close()           
                  
-            self.emit( QtCore.SIGNAL ( "ready(PyQt_PyObject)" ), data )
+            self.emit( QtCore.SIGNAL ( "ready(PyQt_PyObject)" ), data[3] )
             time.sleep(1/self.refresh)
             
         if self.temp_adq:
@@ -262,7 +254,9 @@ class Main( QtGui.QMainWindow ):
         self.connect(self.resistividad,
                      QtCore.SIGNAL("ready(PyQt_PyObject)" ),
                      self.show_data)
-
+        self.connect(self.resistividad,
+                     QtCore.SIGNAL("LOCK_INCFG(PyQt_PyObject)" ),
+                     self.save_lock_in_config)
         #=======================================================================
         ports = scan_serial.scan(30, True)
         print ports
@@ -278,29 +272,10 @@ class Main( QtGui.QMainWindow ):
             self.cbx_lock_in_channel.addItem(port[1])
         self.cbx_lock_in_input.activated.connect(self.on_cbx_lock_in_input_activated)
     #===========================================================================================
-    # Las siguientes 4 funciones son las encargadas de ajustar la escala de la grafica principal
-    # por medio de los controles proporcionados al usuario
     
     @QtCore.pyqtSlot()
-    def on_sb_xmin_valueChanged( self ):
-        self.maincanvas.axes.set_xlim( self.sb_xmin.value(), self.sb_xmax.value() )
-        self.maincanvas.draw()
-        
-    @QtCore.pyqtSlot( int )
-    def on_sb_xmax_valueChanged( self ):
-        self.maincanvas.axes.set_xlim( self.sb_xmin.value(), self.sb_xmax.value() )
-        self.maincanvas.draw()
-        
-    @QtCore.pyqtSlot( int )
-    def on_sb_ymin_valueChanged( self ):
-        self.maincanvas.axes.set_ylim( self.sb_ymin.value(), self.sb_ymax.value() )
-        self.maincanvas.draw()
-        
-    @QtCore.pyqtSlot( int )
-    def on_sb_ymax_valueChanged( self ):
-        self.maincanvas.axes.set_ylim( self.sb_ymin.value(), self.sb_ymax.value() )
-        self.maincanvas.draw()    
-    #============================================================================================
+    def save_lock_in_config(self, lock_in_cfg):
+        self.ptx_footer.setPlainText(lock_in_cfg)
 
 #===============================================================================
 # Funciones de los botones accionados por el usuario para controlar el inicio y el final
@@ -450,14 +425,14 @@ class Main( QtGui.QMainWindow ):
             header += '\t Lock-In: ' + str ( self.cbx_lock_in_input.currentText() ) + '\n'
             header += '\n Datos por segundo: ' + str ( self.sb_data_per_second.value() ) + '\n\n'
             header += 'Tiempo (s) \t T muestra (C) \t Lock-in (V) \n'
-
+            
             self.comented_header = ''
             for line in header.split( '\n' ):
                 self.comented_header = self.comented_header + self.le_output_file_commentchar.text() + line + '\n'
                 
             temp= [self.cbx_temperature_sample_input.currentText(), str(self.cbx_temperature_sample_channel.currentText())]
             lock_in= [str(self.cbx_lock_in_input.currentText()), str(self.cbx_lock_in_channel.currentText())]
-            
+            #print lock_in
             self.resistividad.test( outfile,
                                     self.sb_data_per_second.value(),
                                     lock_in,
@@ -470,11 +445,11 @@ class Main( QtGui.QMainWindow ):
     @QtCore.pyqtSlot ()
     
     def show_data ( self, data ):
-        lock_in_sensitivity=data[3]
-        self.lock_in_sensitivity_unit.setText(lock_in_sensitivity[1])
-        self.lock_in_sensitivity.diplay(lock_in_sensitivity[1])
+        lock_in_sensitivity=data
+        self.lb_lock_in_sensitivity_unit.setText(lock_in_sensitivity[1])
+        self.lcd_lock_in_sensitivity.display(str(lock_in_sensitivity[0]))
         del data
-        
+
         if self.read_data:
             
             f = open( self.le_output_file_path.text() + '.txt' )
@@ -488,7 +463,7 @@ class Main( QtGui.QMainWindow ):
                                                              dtype = float,
                                                              autostrip = True,
                                                              unpack = True )
-            print [time_np[-1], temp_sample[-1], lock_in[-1]]
+            #print [time_np[-1], temp_sample[-1], lock_in[-1]]
             if time_np[-1] < 60:
                 self.lcd_time_second.display( str ( int (time_np[-1] ) ) )
             else:
@@ -509,8 +484,8 @@ class Main( QtGui.QMainWindow ):
             else: # Si no esta normalizado nos muestra simplente el lockin
                 self.lcd_var_2.display( str ( lock_in[-1] ))
 
-            self.lcd_var_5.display( str ( float ( lock_in[-1] )/lock_in_sensitivity[2] ) ) # Nos muestra el lockin sin normalizar en mV o uV
-            self.lcd_var_3.display( str ( float ( lock_in[-1] )/lock_in_sensitivity[2] ) ) # Muestra el lock-in en Voltios. 
+            #self.lcd_var_5.display( str ( float ( lock_in[-1] )*lock_in_sensitivity[2] ) ) # Nos muestra el lockin sin normalizar en mV o uV
+            self.lcd_var_3.display( str ( float ( lock_in[-1] )*lock_in_sensitivity[2] ) ) # Muestra el lock-in en Voltios. 
 
 
 
@@ -534,8 +509,9 @@ class Main( QtGui.QMainWindow ):
             self.maincanvas.axes.cla()
             self.maincanvas.axes.grid( True )
             self.statusBar().showMessage( 'Ploteando principal...' )
-            self.maincanvas.axes.set_xlim( self.sb_xmin.value(), self.sb_xmax.value() )
-            self.maincanvas.axes.set_ylim( self.sb_ymin.value(), self.sb_ymax.value() )            
+            self.maincanvas.axes.axis(self.maincanvas.axes.axis())
+            #self.maincanvas.axes.set_xlim( self.sb_xmin.value(), self.sb_xmax.value() )
+            #self.maincanvas.axes.set_ylim( self.sb_ymin.value(), self.sb_ymax.value() )            
             self.maincanvas.axes.plot( temp_sample, lock_in, 'og' )
             
             for label in self.maincanvas.axes.get_xticklabels():
@@ -625,10 +601,11 @@ class Main( QtGui.QMainWindow ):
 
             data = np.genfromtxt( s,
                                   deletechars = "\n",
+                                  usecols=(0,1,2),
                                   dtype = float,
                                   autostrip = True,
                                   unpack = True )
-            print data
+            #print data
             if data[0] < 60:
                 self.lcd_time_second.display( str ( int (data[0] ) ) )
             else:
@@ -649,8 +626,8 @@ class Main( QtGui.QMainWindow ):
             else:
                 self.lcd_var_2.display( str (  float ( data[2] ) ))
                      
-            self.lcd_var_5.display( str ( float ( data[2] )/lock_in_sensitivity[3] )) # Nos muestra el lockin sin normalizar en mV o uV
-            self.lcd_var_3.display( str ( float ( data[2] )/lock_in_sensitivity[3] )) # Muestra el lock-in en Voltios. 
+            #self.lcd_var_5.display( str ( float ( data[2] )*lock_in_sensitivity[3] )) # Nos muestra el lockin sin normalizar en mV o uV
+            self.lcd_var_3.display( str ( float ( data[2] )*lock_in_sensitivity[2] )) # Muestra el lock-in en Voltios. 
             self.lcd_temperature_sample.display( str ( data[1] ) )
 
 def main():

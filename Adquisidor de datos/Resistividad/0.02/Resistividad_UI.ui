@@ -172,11 +172,6 @@
                <string>AG34410A</string>
               </property>
              </item>
-             <item>
-              <property name="text">
-               <string>USB TEMP AI</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item row="0" column="2">
@@ -201,16 +196,6 @@
              <item>
               <property name="text">
                <string>LOCK-IN SR530</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>AG34410A</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>AG34401A</string>
               </property>
              </item>
             </widget>
@@ -250,25 +235,6 @@
         <string>Graficas</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
-        <item row="0" column="0" rowspan="2" colspan="2">
-         <widget class="QGroupBox" name="gb_auxplot_1">
-          <property name="minimumSize">
-           <size>
-            <width>247</width>
-            <height>181</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>300</width>
-            <height>205</height>
-           </size>
-          </property>
-          <property name="title">
-           <string>Resistencia / Tiempo</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="2">
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
@@ -281,359 +247,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="0" column="3">
-         <widget class="QGroupBox" name="groupBox_2">
-          <property name="minimumSize">
-           <size>
-            <width>151</width>
-            <height>81</height>
-           </size>
-          </property>
-          <property name="title">
-           <string>Velocidad  temp. (C / min)</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <widget class="QLCDNumber" name="lcd_var_4">
-             <property name="minimumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="smallDecimalPoint">
-              <bool>true</bool>
-             </property>
-             <property name="numDigits">
-              <number>4</number>
-             </property>
-             <property name="digitCount">
-              <number>4</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="4" colspan="2">
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="minimumSize">
-           <size>
-            <width>131</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="palette">
-           <palette>
-            <active>
-             <colorrole role="Base">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>255</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="Window">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </active>
-            <inactive>
-             <colorrole role="Base">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>255</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="Window">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </inactive>
-            <disabled>
-             <colorrole role="Base">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="Window">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>255</red>
-                <green>255</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </disabled>
-           </palette>
-          </property>
-          <property name="title">
-           <string>Lock - In (mV o uV)</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_7">
-           <item row="0" column="0">
-            <widget class="QLCDNumber" name="lcd_var_5">
-             <property name="minimumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="palette">
-              <palette>
-               <active>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>0</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </active>
-               <inactive>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>255</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>0</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </inactive>
-               <disabled>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>0</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>255</red>
-                   <green>255</green>
-                   <blue>0</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </disabled>
-              </palette>
-             </property>
-             <property name="smallDecimalPoint">
-              <bool>true</bool>
-             </property>
-             <property name="numDigits">
-              <number>4</number>
-             </property>
-             <property name="digitCount">
-              <number>4</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="6">
-         <widget class="QGroupBox" name="gb_var_2">
-          <property name="minimumSize">
-           <size>
-            <width>141</width>
-            <height>81</height>
-           </size>
-          </property>
-          <property name="title">
-           <string>R / Ro</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_11">
-           <item row="0" column="0">
-            <widget class="QLCDNumber" name="lcd_var_2">
-             <property name="minimumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="smallDecimalPoint">
-              <bool>true</bool>
-             </property>
-             <property name="numDigits">
-              <number>4</number>
-             </property>
-             <property name="digitCount">
-              <number>4</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-             <property name="value" stdset="0">
-              <double>0.000000000000000</double>
-             </property>
-             <property name="intValue" stdset="0">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="7">
-         <widget class="QGroupBox" name="gb_var_3">
-          <property name="minimumSize">
-           <size>
-            <width>141</width>
-            <height>81</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>141</width>
-            <height>81</height>
-           </size>
-          </property>
-          <property name="title">
-           <string>Lock - In  (V)</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_12">
-           <item row="0" column="0">
-            <widget class="QLCDNumber" name="lcd_var_3">
-             <property name="minimumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>121</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="smallDecimalPoint">
-              <bool>true</bool>
-             </property>
-             <property name="numDigits">
-              <number>3</number>
-             </property>
-             <property name="digitCount">
-              <number>3</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-             <property name="value" stdset="0">
-              <double>0.000000000000000</double>
-             </property>
-             <property name="intValue" stdset="0">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="1" column="2" rowspan="3" colspan="7">
-         <widget class="QGroupBox" name="gb_mainplot">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>401</height>
-           </size>
-          </property>
-          <property name="contextMenuPolicy">
-           <enum>Qt::NoContextMenu</enum>
-          </property>
-          <property name="title">
-           <string>Resistencia / Temperatura de la muestra</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="QGroupBox" name="gb_auxplot_2">
-          <property name="minimumSize">
-           <size>
-            <width>247</width>
-            <height>181</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>300</width>
-            <height>181</height>
-           </size>
-          </property>
-          <property name="title">
-           <string>Temperatura / Tiempo</string>
-          </property>
-         </widget>
         </item>
         <item row="3" column="0" rowspan="2" colspan="2">
          <widget class="QGroupBox" name="groupBox_3">
@@ -739,111 +352,290 @@
           </layout>
          </widget>
         </item>
-        <item row="4" column="2" rowspan="2" colspan="3">
-         <widget class="QGroupBox" name="gb_scale_mainplot_controls">
+        <item row="0" column="0" rowspan="2" colspan="2">
+         <widget class="QGroupBox" name="gb_auxplot_1">
           <property name="minimumSize">
            <size>
-            <width>316</width>
-            <height>81</height>
+            <width>247</width>
+            <height>181</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>316</width>
+            <width>300</width>
+            <height>205</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Resistencia / Tiempo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
             <height>81</height>
            </size>
           </property>
           <property name="title">
-           <string>Scale Main Graph</string>
+           <string>Velocidad  temp. (C / min)</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_15">
+          <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="0">
-            <widget class="QLabel" name="lb_x_min">
-             <property name="text">
-              <string>xMin</string>
+            <widget class="QLCDNumber" name="lcd_var_4">
+             <property name="minimumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="lb_x_max">
-             <property name="text">
-              <string>xMax</string>
+             <property name="maximumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
              </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="lb_y_min">
-             <property name="text">
-              <string>yMin</string>
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
              </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="lb_y_max">
-             <property name="text">
-              <string>yMax</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QDoubleSpinBox" name="sb_ymin">
-             <property name="decimals">
+             <property name="numDigits">
               <number>4</number>
              </property>
-             <property name="minimum">
-              <double>0.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>499.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>1.000000000000000</double>
-             </property>
-             <property name="value">
-              <double>1.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QDoubleSpinBox" name="sb_ymax">
-             <property name="decimals">
+             <property name="digitCount">
               <number>4</number>
              </property>
-             <property name="minimum">
-              <double>0.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>1.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QDoubleSpinBox" name="sb_xmin">
-             <property name="minimum">
-              <double>-500.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>499.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QDoubleSpinBox" name="sb_xmax">
-             <property name="minimum">
-              <double>-450.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
         </item>
-        <item row="4" column="5" rowspan="2" colspan="2">
+        <item row="2" column="0" colspan="2">
+         <widget class="QGroupBox" name="gb_auxplot_2">
+          <property name="minimumSize">
+           <size>
+            <width>247</width>
+            <height>181</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>181</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Temperatura / Tiempo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="6">
+         <widget class="QGroupBox" name="gb_lock_in_sensitivity">
+          <property name="title">
+           <string>Lock - in Sensitivity</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="1" rowspan="2">
+            <widget class="QLCDNumber" name="lcd_lock_in_sensitivity">
+             <property name="smallDecimalPoint">
+              <bool>false</bool>
+             </property>
+             <property name="numDigits">
+              <number>3</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" rowspan="2">
+            <widget class="QLabel" name="lb_lock_in_sensitivity_unit">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(0, 255, 0)</string>
+             </property>
+             <property name="text">
+              <string>mV</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::AutoText</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QGroupBox" name="gb_var_3">
+          <property name="minimumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Lock - In </string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_var_3">
+             <property name="minimumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>3</number>
+             </property>
+             <property name="digitCount">
+              <number>3</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>0.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QGroupBox" name="gb_var_2">
+          <property name="minimumSize">
+           <size>
+            <width>141</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>R / Ro</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="0">
+            <widget class="QLCDNumber" name="lcd_var_2">
+             <property name="minimumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>121</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="smallDecimalPoint">
+              <bool>true</bool>
+             </property>
+             <property name="numDigits">
+              <number>4</number>
+             </property>
+             <property name="digitCount">
+              <number>4</number>
+             </property>
+             <property name="segmentStyle">
+              <enum>QLCDNumber::Flat</enum>
+             </property>
+             <property name="value" stdset="0">
+              <double>0.000000000000000</double>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="pb_start">
+          <property name="text">
+           <string>Comenzar</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="pb_normalizar">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Normalizar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="pb_start_save_data">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Iniciar registro de datos</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="pb_end">
+          <property name="text">
+           <string>Finalizar</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="7">
          <widget class="QGroupBox" name="gb_time">
           <property name="minimumSize">
            <size>
@@ -915,115 +707,20 @@
           </layout>
          </widget>
         </item>
-        <item row="5" column="0">
-         <widget class="QPushButton" name="pb_start">
-          <property name="text">
-           <string>Comenzar</string>
-          </property>
-          <property name="iconSize">
+        <item row="1" column="2" rowspan="6" colspan="6">
+         <widget class="QGroupBox" name="gb_mainplot">
+          <property name="maximumSize">
            <size>
-            <width>40</width>
-            <height>40</height>
+            <width>825</width>
+            <height>517</height>
            </size>
           </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QPushButton" name="pb_normalizar">
-          <property name="enabled">
-           <bool>true</bool>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
           </property>
-          <property name="text">
-           <string>Normalizar</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QPushButton" name="pb_start_save_data">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Iniciar registro de datos</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QPushButton" name="pb_end">
-          <property name="text">
-           <string>Finalizar</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="7" colspan="2">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>389</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="8">
-         <widget class="QGroupBox" name="gb_lock_in_sensitivity">
           <property name="title">
-           <string>Lock - in Sensitivity</string>
+           <string>Resistencia / Temperatura de la muestra</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="0" column="1" rowspan="2">
-            <widget class="QLCDNumber" name="lcd_lock_in_sensitivity">
-             <property name="smallDecimalPoint">
-              <bool>false</bool>
-             </property>
-             <property name="numDigits">
-              <number>3</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" rowspan="2">
-            <widget class="QLabel" name="lb_lock_in_sensitivity_unit">
-             <property name="font">
-              <font>
-               <pointsize>14</pointsize>
-              </font>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(0, 255, 0)</string>
-             </property>
-             <property name="text">
-              <string>mV</string>
-             </property>
-             <property name="textFormat">
-              <enum>Qt::AutoText</enum>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </widget>
         </item>
        </layout>
