@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SerialConfig</class>
+ <widget class="QDialog" name="SerialConfig">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>319</width>
+    <height>276</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="lb_parity">
+     <property name="text">
+      <string>Paridad</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QComboBox" name="cb_stopbits"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="lb_stopbits">
+     <property name="text">
+      <string>Bits de Parada</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="lb_port">
+     <property name="text">
+      <string>Puerto Serie</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="cb_port"/>
+   </item>
+   <item row="2" column="1">
+    <widget class="QComboBox" name="cb_parity"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QComboBox" name="cb_baudrate"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lb_bytesize">
+     <property name="text">
+      <string>Bit de datos</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QPushButton" name="pb_cancel">
+     <property name="text">
+      <string>Cancelar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QComboBox" name="cb_bytesize"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="lb_baudrate">
+     <property name="text">
+      <string>Velocidad </string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QPushButton" name="pb_accept">
+     <property name="text">
+      <string>Aceptar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="lb_puntos">
+     <property name="text">
+      <string>Puntos por hora</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QSpinBox" name="sb_puntos">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>60</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
