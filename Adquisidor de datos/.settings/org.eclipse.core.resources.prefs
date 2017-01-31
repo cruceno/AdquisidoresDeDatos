@@ -1,13 +1,4 @@
 eclipse.preferences.version=1
-encoding//Ciclotermico/CicloTermico.py=utf-8
-encoding//Ciclotermico/CicloTermico_conmultimetro.py=utf-8
-encoding//Ciclotermico/pyvisa/visa_attributes.py=utf-8
-encoding//OMAIII/v0.02/main.py=utf-8
-encoding//Resistividad/0.01/Resistividad.py=utf-8
-encoding//Resistividad/0.02/Multimetros.py=utf-8
-encoding//Resistividad/0.02/Resistividad.py=utf-8
-encoding//Resistividad/0.02/lockin.py=utf-8
-encoding//Resistividad/0.02/scan_serial.py=iso-8859-15
 encoding//src/CicloTermico.py=utf-8
 encoding//src/pruebita.py=utf-8
 encoding//src/pyvisa/visa_attributes.py=utf-8
