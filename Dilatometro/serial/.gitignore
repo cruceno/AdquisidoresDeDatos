@@ -1,0 +1,5 @@
+/__init__.pyc
+/serialposix.pyc
+/serialutil.pyc
+/serialwin32.pyc
+/win32.pyc
